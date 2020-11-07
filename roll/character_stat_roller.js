@@ -26,8 +26,9 @@ const header = rolls.map((roll, index) => `<th>D${index + 1}</th>`).join('');
 let tableRows = '';
 let finalSum = 0;
 for(let {parts, total} of stats) {
+    console.log(parts[0].rolls);
   tableRows += `<tr style="text-align:center">`;
-  tableRows += parts[0].rolls.map(({roll}) => `<td ${colorSetter(roll, 1, faces)}>${roll}</td>`).join('');
+  tableRows += parts[0].rolls.map(({result}) => `<td ${colorSetter(result, 1, faces)}>${result}</td>`).join('');
   tableRows += `<td style="border-left:1px solid #000; ${colorSetter(total, totalLow, totalHigh)}">${total}</td></tr>`;
   finalSum += total;
 }
